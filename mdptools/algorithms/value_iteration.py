@@ -20,6 +20,8 @@ def value_iteration(mdp: MDP, tol=1e-6):
     policy : np.ndarray
         Optimal policy.
     """
+    S = mdp.S  # State space
+    A = mdp.A  # Action space
     P = mdp.P  # Transition probabilities
     R = mdp.R  # Reward matrix
     gamma = mdp.gamma  # Discount factor
@@ -39,5 +41,9 @@ def value_iteration(mdp: MDP, tol=1e-6):
     policy = np.zeros(n_state, dtype=int)
     for state in range(n_state):
         policy[state] = np.argmax(R[state] + gamma * np.dot(P[state], V))
+
+    # get dictionary policy, value
+    policy_dict = {tuple(s): a for s, a in zip(S, policy)}
+    V_dict = {tuple(s): v for s, v in zip(S, V)}
 
     return V, policy
