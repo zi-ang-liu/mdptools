@@ -1,8 +1,29 @@
 from ..mdp import MDP
 import numpy as np
 
-def value_iteration(P, R, gamma=0.995, tol=1e-6)
-def value_iteration(P, R, gamma=0.995, tol=1e-6):
+
+def value_iteration(mdp: MDP, tol=1e-6):
+    """
+    Value iteration algorithm for solving a Markov Decision Process (MDP).
+
+    Parameters
+    ----------
+    mdp : MDP
+        The Markov Decision Process to solve.
+    tol : float, optional
+        Tolerance for stopping criterion, by default 1e-6.
+
+    Returns
+    -------
+    V : np.ndarray
+        Optimal value function.
+    policy : np.ndarray
+        Optimal policy.
+    """
+    P = mdp.P  # Transition probabilities
+    R = mdp.R  # Reward matrix
+    gamma = mdp.gamma  # Discount factor
+
     n_state, n_action = R.shape
     V = np.zeros(n_state)
     delta = np.inf
@@ -16,7 +37,7 @@ def value_iteration(P, R, gamma=0.995, tol=1e-6):
 
     # compute the optimal policy
     policy = np.zeros(n_state, dtype=int)
-    for i in range(n_state):
-        policy[i] = np.argmax(R[i] + gamma * np.dot(P[i], V))
+    for state in range(n_state):
+        policy[state] = np.argmax(R[state] + gamma * np.dot(P[state], V))
 
     return V, policy
