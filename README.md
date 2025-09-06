@@ -47,6 +47,6 @@ print("Optimal Policy:", policy)
 
 ## Todo
 
-- [] Add Policy Iteration algorithm.
-- [] Add Q-Learning algorithm.
-- [] Modify the simulation function.
+- [ ] Add Policy Iteration algorithm.
+- [ ] Add Q-Learning algorithm.
+- [ ] Modify the simulation function.
