@@ -42,8 +42,4 @@ def value_iteration(mdp: MDP, tol=1e-6):
     for state in range(n_state):
         policy[state] = np.argmax(R[state] + gamma * np.dot(P[state], V))
 
-    # get dictionary policy, value
-    policy_dict = {tuple(s): a for s, a in zip(S, policy)}
-    V_dict = {tuple(s): v for s, v in zip(S, V)}
-
     return V, policy
