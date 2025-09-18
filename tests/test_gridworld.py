@@ -79,7 +79,7 @@ def create_gridworld_mdp():
     return MDP(S, A, P, R, gamma)
 
 
-def test_value_iteration_gridworld():
+if __name__ == "__main__":
     mdp = create_gridworld_mdp()
     V, policy = value_iteration(mdp, tol=1e-10)
 
@@ -87,7 +87,3 @@ def test_value_iteration_gridworld():
     np.set_printoptions(precision=1, suppress=True)
     print("Optimal Value Function:")
     print(V.reshape((5, 5)))
-
-
-if __name__ == "__main__":
-    test_value_iteration_gridworld()
