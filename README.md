@@ -60,6 +60,6 @@ print("Optimal Policy:", policy)
 
 ### Verified Example
 
-Currently, the following examples are implemented and verified:
+Please refer to the `tests` folder for verified examples.
 
 - Sutton et al. (2018) Example 3.8, p. 65
