@@ -82,9 +82,10 @@ def create_gridworld_mdp():
 
 if __name__ == "__main__":
     mdp = create_gridworld_mdp()
-    V, policy = value_iteration(mdp, tol=1e-10)
 
-    # print results with .2f formatting
+    # Value Iteration
+    print("Running Value Iteration...")
+    V, policy = value_iteration(mdp, tol=1e-10)
     np.set_printoptions(precision=1, suppress=True)
     print("Optimal Value Function:")
     print(V.reshape((5, 5)))
@@ -93,6 +94,7 @@ if __name__ == "__main__":
     print(policy.reshape((5, 5)))
 
     # Policy Iteration
+    print("\nRunning Policy Iteration...")
     V_pi, policy_pi = policy_iteration(mdp, tol=1e-10)
     print("\nOptimal Value Function (Policy Iteration):")
     print(V_pi.reshape((5, 5)))
