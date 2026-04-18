@@ -26,8 +26,8 @@ class MDP:
         gamma : float, optional
             Discount factor, by default 0.995.
         """
-        self.S = S
-        self.A = A
-        self.P = P
-        self.R = R
-        self.gamma = gamma
+        self.S = np.asarray(S)
+        self.A = np.asarray(A)
+        self.P = np.asarray(P, dtype=float)
+        self.R = np.asarray(R, dtype=float)
+        self.gamma = float(gamma)

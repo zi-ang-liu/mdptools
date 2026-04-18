@@ -19,7 +19,7 @@ The `MDP` class represents a Markov Decision Process with the following paramete
 
 - `S`: State space of shape (n_states, state_dim).
 - `A`: Action space of shape (n_actions, action_dim).
-- `P`: Transition probability matrix of shape (n_actions, n_states, n_states).
+- `P`: Transition probability matrix of shape (n_states, n_actions, n_states).
 - `R`: Reward matrix of shape (n_states, n_actions).
 - `gamma`: Discount factor (default is 0.995).
 

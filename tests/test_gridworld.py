@@ -1,6 +1,7 @@
 import numpy as np
 from mdptools.mdp import MDP
 from mdptools.algorithms.value_iteration import value_iteration
+from mdptools.algorithms.policy_iteration import policy_iteration
 
 """
 Sutton et al. (2018) Example 3.8
@@ -87,3 +88,13 @@ if __name__ == "__main__":
     np.set_printoptions(precision=1, suppress=True)
     print("Optimal Value Function:")
     print(V.reshape((5, 5)))
+
+    print("\nOptimal Policy (0=up, 1=down, 2=left, 3=right):")
+    print(policy.reshape((5, 5)))
+
+    # Policy Iteration
+    V_pi, policy_pi = policy_iteration(mdp, tol=1e-10)
+    print("\nOptimal Value Function (Policy Iteration):")
+    print(V_pi.reshape((5, 5)))
+    print("\nOptimal Policy (Policy Iteration):")
+    print(policy_pi.reshape((5, 5)))

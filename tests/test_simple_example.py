@@ -1,6 +1,7 @@
 import numpy as np
 from mdptools.mdp import MDP
 from mdptools.algorithms.value_iteration import value_iteration
+from mdptools.algorithms.policy_iteration import policy_iteration
 
 """
 A simple example to demonstrate value iteration on a small MDP.
@@ -46,7 +47,13 @@ R = np.array(
 )
 gamma = 0.9
 
+# Value Iteration
 mdp = MDP(S, A, P, R, gamma)
 V, policy = value_iteration(mdp)
 print("Optimal Policy:\n", policy)
 print("Optimal Value Function:\n", V)
+
+# Policy Iteration
+V_pi, policy_pi = policy_iteration(mdp)
+print("Optimal Policy (Policy Iteration):\n", policy_pi)
+print("Optimal Value Function (Policy Iteration):\n", V_pi)
